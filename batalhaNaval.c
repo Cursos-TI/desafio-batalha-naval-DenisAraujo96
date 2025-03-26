@@ -1,35 +1,50 @@
 #include <stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
-
-#include <stdio.h>
-
 int main() {
-    char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}; // Criando o tabuleiro
-    int tabuleiro[10][10];
+    // Definindo o tabuleiro de batalha naval (10x10)
+    char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}; // Linhas do tabuleiro
+    int tabuleiro[10][10]; // Matriz para representar o tabuleiro 
 
-    //inicializando o tabuleiro
-    for (int i=0; i < 10; i++){
-        for (int j=0; j<10; j++){
+    // Inicializando todas as posições do tabuleiro 
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
             tabuleiro[i][j] = 0;
         }
     }
-    //impressão do tabuleiro
-    printf("  ");
-    for (int i=0; i<10; i++){
-        printf("%d ", i);
+
+    // Declarando e posicionando dois navios (tamanho fixo de 3 posições)
+    // Navio 1: horizontal (linha E, começando na coluna 2)
+    int navioHorizontal[3] = {3, 3, 3}; // Valores representam o navio
+    int linhaHorizontal = 4; // Índice da linha (E = índice 4)
+    int colunaHorizontal = 2; // Índice inicial da coluna
+
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linhaHorizontal][colunaHorizontal + i] = navioHorizontal[i]; // Posiciona na matriz
+    }
+
+    // Navio 2: vertical (coluna 7, começando na linha C)
+    int navioVertical[3] = {3, 3, 3}; // Valores representam o navio
+    int linhaVertical = 2; // Índice inicial da linha (C = índice 2)
+    int colunaVertical = 6; // Índice da coluna
+
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[linhaVertical + i][colunaVertical] = navioVertical[i]; // Posiciona na matriz
+    }
+
+    // Imprimindo o tabuleiro no console
+    printf("   "); // Espaço para o cabeçalho das colunas
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", i + 1); // Cabeçalho numérico das colunas
     }
     printf("\n");
-    for (int i = 0; i < 10; i++){
-        printf("%c ", linha[i]);//imprime cabeçalho
-        for (int j=0; j<10; j++){
-            printf("%d ", tabuleiro[i][j]);//imprime as letras        
+
+    for (int i = 0; i < 10; i++) {
+        printf("%c  ", linha[i]); // Cabeçalho com letras das linhas
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro[i][j]); // Exibe os valores da matriz
         }
         printf("\n");
     }
-   
 
     return 0;
 }
