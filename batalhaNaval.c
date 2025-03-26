@@ -17,14 +17,15 @@ int main() {
         }
     }
     //impressão do tabuleiro
-    //printf(" ");
+    printf("  ");
     for (int i=0; i<10; i++){
-        printf("%d", i);
+        printf("%d ", i);
     }
+    printf("\n");
     for (int i = 0; i < 10; i++){
-        printf("%c ", linha[i]);//imprime o cabeçalho
+        printf("%c ", linha[i]);//imprime cabeçalho
         for (int j=0; j<10; j++){
-            printf("%d ", tabuleiro[i][j]);            
+            printf("%d ", tabuleiro[i][j]);//imprime as letras        
         }
         printf("\n");
     }
